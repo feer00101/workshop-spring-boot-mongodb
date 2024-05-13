@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.swing.text.html.Option;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.nilofer.workshopmongo.domain.User;
@@ -33,6 +34,14 @@ public class UserService {
 
     public User insert(User obj) {
         return repo.insert(obj);
+    }
+
+    public void delete(String id) {
+        findById(id);
+        repo.deleteById(id);
+        ;
+        ;
+
     }
 
     public User fromDTO(UserDTO objDto) {
